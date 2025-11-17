@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🕒 Lumiterra Survival Season Countdown 🕒</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      text-align: center;
+      background: url('https://pbs.twimg.com/media/G56xNNpaIAE05h4?format=jpg&name=large') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      background: rgba(0, 0, 0, 0.55);
+      padding: 30px;
+      border-radius: 18px;
+      max-width: 820px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+
+    #countdown {
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+
+    p {
+      margin: 6px 0;
+    }
+
+    .text-yellow {
+      color: #FFEB3B;
+      font-weight: 700;
+    }
+
+    .text-green {
+      color: #7CFC00;
+    }
+
+    a {
+      color: #00ffff;
+      text-decoration: underline;
+    }
+
+    a:hover {
+      color: #ffeb3b;
+      text-shadow: 0 0 5px #ffeb3b;
+    }
+
+    .credit {
+      margin-top: 18px;
+      font-size: 14px;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🕒 Lumiterra Survival Season Countdown 🕒</h1>
+
+    <div id="countdown">
+      <span id="days">00</span>d 
+      <span id="hours">00</span>h 
+      <span id="minutes">00</span>m 
+      <span id="seconds">00</span>s
+    </div>
+
+    <p><strong>Launch Date:</strong> November 24th, 9 AM ET</p>
+    <p><strong>Season Start:</strong> Same day after Monad Mainnet goes Live!</p>
+    <p class="text-yellow"><strong>Event:</strong> Compete, Survive, Earn</p>
+    <p class="text-green">Exclusive $MON rewards await early explorers!</p>
+
+    <h2>🎥 Official Teaser Video</h2>
+    <blockquote class="twitter-tweet" data-media-max-width="560">
+      <a href="https://x.com/i/status/1988585067321659689"></a>
+    </blockquote>
+    <script async src="https://platform.twitter.com/widgets.js"></script>
+
+    <div class="credit">
+      Countdown page created by <a href="https://x.com/apexnftcore" target="_blank">Apexcore</a>
+    </div>
+  </div>
+
+  <script>
+    // Countdown to Nov 24, 2025 09:00 ET → UTC = 2025-11-24 14:00:00Z
+    const targetDate = new Date("2025-11-24T14:00:00Z").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance < 0) {
+        document.getElementById("countdown").innerHTML = "🚀 Survival Season Has Begun!";
+        clearInterval(interval);
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("days").innerText = String(days).padStart(2, "0");
+      document.getElementById("hours").innerText = String(hours).padStart(2, "0");
+      document.getElementById("minutes").innerText = String(minutes).padStart(2, "0");
+      document.getElementById("seconds").innerText = String(seconds).padStart(2, "0");
+    }
+
+    updateCountdown();
+    const interval = setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
